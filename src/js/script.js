@@ -1,5 +1,5 @@
 import "./../scss/main.scss"
-require('dotenv').config();
+const dotenv = require('dotenv').config();
 
 /*
  * This app shows the weather of the city you input
