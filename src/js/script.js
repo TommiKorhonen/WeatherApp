@@ -1,9 +1,11 @@
 import "./../scss/main.scss"
+require('dotenv').config()
+
 /*
  * This app shows the weather of the city you input
  *
 */
-
+const api_key = process.env.API_KEY;
 let cityName = document.getElementById("name");
 let weatherDescription = document.getElementById("desc");
 let tempIcon = document.getElementById("tempIcon")
@@ -14,10 +16,12 @@ let temperature = document.getElementById("temp");
  * Uses openweathermap api
  * Gives the info to the displayWeather function from the api
 */ 
+
+
 function getWeather(city) {
     fetch("https://api.openweathermap.org/data/2.5/weather?q="
     + city 
-    +"&units=metric&appid=0516e1e3ca438425f653ec5340fe40d9")
+    +"&units=metric&appid="+api_key+"")
     .then( (response) => response.json())
     .then((data) => displayWeather(data)); 
     
